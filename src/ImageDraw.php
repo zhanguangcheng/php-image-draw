@@ -47,12 +47,13 @@ class ImageDraw
     public function drawWithConfig($config)
     {
         $result = null;
+        $types = self::getTypes();
         foreach ($config as $item) {
             if (empty($item['type'])) {
                 throw new InvalidArgumentException('参数type不能为空');
             }
-            if (!array_key_exists($item['type'], self::getTypes())) {
-                throw new InvalidArgumentException("参数type（${$item['type']}）暂未支持");
+            if (!array_key_exists($item['type'], $types)) {
+                throw new InvalidArgumentException("参数type（{$item['type']}）暂未支持");
             }
             $method = 'draw' . ucfirst($item['type']);
             if ($item['type'] === self::TYPE_TO_STREAM) {
