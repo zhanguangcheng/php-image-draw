@@ -25,6 +25,7 @@ $draw->drawFromImage(['file' => '/path/to/image.png']);
 ## 绘画
 ```php
 // 写文字，左右居中显示
+$font = '/path/to/font.ttf';
 $draw->drawText(['text'=>'文本Test', 'x'=>'center', 'y'=>100, 'font'=>$font, 'fontSize'=>20]);
 
 // 画图片
